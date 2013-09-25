@@ -24,19 +24,14 @@ Feature: Foo.rb test. Seeing if a file would load.
     Then I get 10 as the response               # features/step_definitions/foo_feature.rb:23
 
 #encoding: utf-8
-Feature: Google.com test
+Feature: yahoo.com test
 
-  Scenario: searching google                       # features/google.feature:4
-    Given I am on the page "http://www.google.com" # features/step_definitions/google_feature.rb:1
+  Scenario: searching yahoo                                                             # features/yahoo.feature:4
+    Given I am on the page "http://www.yahoo.com"                                       # features/step_definitions/yahoo_feature.rb:1
       
-    When I fill in "q" with "dogs"                 # features/step_definitions/google_feature.rb:6
-      Unable to find button "btnG" (Capybara::ElementNotFound)
-      features/google.feature:6:in `When I fill in "q" with "dogs"'
-    Then I should see "Wikipedia"                  # features/step_definitions/google_feature.rb:11
+    When I fill in "input-query input-long med-large compact-input-enabled" with "dogs" # features/step_definitions/yahoo_feature.rb:6
+    Then I should see "Wikipedia"                                                       # features/step_definitions/yahoo_feature.rb:11
 
-Failing Scenarios:
-cucumber features/google.feature:4 # Scenario: searching google
-
-4 scenarios (1 failed, 3 passed)
-13 steps (1 failed, 1 skipped, 11 passed)
-0m54.169s
+4 scenarios (4 passed)
+13 steps (13 passed)
+1m41.880s

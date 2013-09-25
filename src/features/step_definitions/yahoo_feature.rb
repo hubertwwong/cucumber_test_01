@@ -4,8 +4,8 @@ Given(/^I am on the page "(.*?)"$/) do |arg1|
 end
 
 When(/^I fill in "(.*?)" with "(.*?)"$/) do |element, text|
-  fill_in element, with: text
-  click_button "Google Search"
+  find(:xpath, '//form[@class="search-form"]//input[@name="p"]').set(text)
+  click_on "Search"
 end
  
 Then(/^I should see "(.*?)"$/) do |arg1|

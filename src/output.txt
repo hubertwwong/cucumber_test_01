@@ -26,18 +26,17 @@ Feature: Foo.rb test. Seeing if a file would load.
 #encoding: utf-8
 Feature: Google.com test
 
-  Scenario: View home page         # features/google.feature:4
-    Given I am on the home page    # features/google.feature:5
-    When I fill in "q" with "dogs" # features/step_definitions/google_feature.rb:6
-    Then I should see "Google"     # features/step_definitions/google_feature.rb:10
+  Scenario: searching google                       # features/google.feature:4
+    Given I am on the page "http://www.google.com" # features/step_definitions/google_feature.rb:1
+      
+    When I fill in "q" with "dogs"                 # features/step_definitions/google_feature.rb:6
+      Unable to find button "btnG" (Capybara::ElementNotFound)
+      features/google.feature:6:in `When I fill in "q" with "dogs"'
+    Then I should see "Wikipedia"                  # features/step_definitions/google_feature.rb:11
 
-4 scenarios (1 undefined, 3 passed)
-13 steps (2 skipped, 1 undefined, 10 passed)
-0m0.195s
+Failing Scenarios:
+cucumber features/google.feature:4 # Scenario: searching google
 
-You can implement step definitions for undefined steps with these snippets:
-
-Given(/^I am on the home page$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
+4 scenarios (1 failed, 3 passed)
+13 steps (1 failed, 1 skipped, 11 passed)
+0m54.169s

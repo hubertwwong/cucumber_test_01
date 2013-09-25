@@ -8,13 +8,21 @@ Feature: Showcase the simplest possible Cucumber scenario
     Given a cucumber that is 30 cm long # features/step_definitions/first_feature.rb:1
     When I cut it in halves             # features/step_definitions/first_feature.rb:6
     Then I have two cucumbers           # features/step_definitions/first_feature.rb:13
-      undefined method `should' for 2:Fixnum (NoMethodError)
-      features/first.feature:10:in `Then I have two cucumbers'
     And both are 15 cm long             # features/step_definitions/first_feature.rb:18
 
-Failing Scenarios:
-cucumber features/first.feature:7 # Scenario: Cutting vegetables
+#encoding: utf-8
+Feature: Foo.rb test. Seeing if a file would load.
 
-1 scenario (1 failed)
-4 steps (1 failed, 1 skipped, 2 passed)
-0m0.048s
+  Scenario: hello                 # features/foo.feature:4
+    Given a call to hello         # features/step_definitions/foo_feature.rb:3
+    When I call the hello method  # features/step_definitions/foo_feature.rb:7
+    Then I get the response world # features/step_definitions/foo_feature.rb:11
+
+  Scenario: plus_two                            # features/foo.feature:9
+    Given a call to plus_two                    # features/step_definitions/foo_feature.rb:15
+    When I call plus_two with 8 as the argument # features/step_definitions/foo_feature.rb:19
+    Then I get 10 as the response               # features/step_definitions/foo_feature.rb:23
+
+3 scenarios (3 passed)
+10 steps (10 passed)
+0m0.114s

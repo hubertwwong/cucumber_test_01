@@ -1,0 +1,30 @@
+#encoding: utf-8
+Feature: Showcase the simplest possible Cucumber scenario
+  In order to verify that cucumber is installed and configured correctly
+  As an aspiring BDD fanatic 
+  I should be able to run this scenario and see that the steps pass (green like a cuke)
+
+  Scenario: Cutting vegetables          # features/first.feature:7
+    Given a cucumber that is 30 cm long # features/first.feature:8
+    When I cut it in halves             # features/first.feature:9
+    Then I have two cucumbers           # features/first.feature:10
+    And both are 15 cm long             # features/step_definitions/first_feature.rb:14
+
+1 scenario (1 undefined)
+4 steps (1 skipped, 3 undefined)
+0m0.034s
+
+You can implement step definitions for undefined steps with these snippets:
+
+Given(/^a cucumber that is (\d+) cm long$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+When(/^I cut it in halves$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I have two cucumbers$/) do
+  pending # express the regexp above with the code you wish you had
+end
+

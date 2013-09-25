@@ -5,26 +5,16 @@ Feature: Showcase the simplest possible Cucumber scenario
   I should be able to run this scenario and see that the steps pass (green like a cuke)
 
   Scenario: Cutting vegetables          # features/first.feature:7
-    Given a cucumber that is 30 cm long # features/first.feature:8
-    When I cut it in halves             # features/first.feature:9
-    Then I have two cucumbers           # features/first.feature:10
-    And both are 15 cm long             # features/step_definitions/first_feature.rb:14
+    Given a cucumber that is 30 cm long # features/step_definitions/first_feature.rb:1
+    When I cut it in halves             # features/step_definitions/first_feature.rb:6
+    Then I have two cucumbers           # features/step_definitions/first_feature.rb:13
+      undefined method `should' for 2:Fixnum (NoMethodError)
+      features/first.feature:10:in `Then I have two cucumbers'
+    And both are 15 cm long             # features/step_definitions/first_feature.rb:18
 
-1 scenario (1 undefined)
-4 steps (1 skipped, 3 undefined)
-0m0.034s
+Failing Scenarios:
+cucumber features/first.feature:7 # Scenario: Cutting vegetables
 
-You can implement step definitions for undefined steps with these snippets:
-
-Given(/^a cucumber that is (\d+) cm long$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-
-When(/^I cut it in halves$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I have two cucumbers$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
+1 scenario (1 failed)
+4 steps (1 failed, 1 skipped, 2 passed)
+0m0.048s

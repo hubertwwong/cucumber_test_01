@@ -24,28 +24,31 @@ Feature: Foo.rb test. Seeing if a file would load.
     Then I get 10 as the response               # features/step_definitions/foo_feature.rb:23
 
 #encoding: utf-8
+Feature: startpage.com test
+
+  Scenario: searching yahoo                                                 # features/start_page.feature:4
+    Given I am on the page "http://www.startpage.com"                       # features/step_definitions/browser.rb:1
+      {"status"=>"success"}
+    When I fill in "dogs" in the "//input[@name='query']" field using xpath # features/step_definitions/browser.rb:5
+    And I click on "submit"                                                 # features/step_definitions/browser.rb:9
+    Then I should see "Wikipedia" on the page                               # features/step_definitions/browser.rb:13
+
+#encoding: utf-8
 Feature: yahoo.com test
 
-  Scenario: searching yahoo                       # features/yahoo.feature:4
-    Given I am on the page "http://www.yahoo.com" # features/step_definitions/yahoo_feature.rb:1
-      rack-test requires a rack application, but none was given (ArgumentError)
-      features/yahoo.feature:5:in `Given I am on the page "http://www.yahoo.com"'
-    When I fill in "field" with "dogs"            # features/step_definitions/yahoo_feature.rb:6
-    Then I should see "Wikipedia"                 # features/step_definitions/yahoo_feature.rb:11
-      rack-test requires a rack application, but none was given (ArgumentError)
-      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara/rack_test/driver.rb:16:in `initialize'
-      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara.rb:339:in `new'
-      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara.rb:339:in `block in <top (required)>'
-      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara/session.rb:68:in `call'
-      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara/session.rb:68:in `driver'
-      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara/session.rb:77:in `reset!'
-      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara.rb:245:in `block in reset_sessions!'
-      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara.rb:245:in `each'
-      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara.rb:245:in `After'
+  Scenario: searching yahoo                                                                         # features/yahoo.feature:4
+    Given I am on the page "http://www.yahoo.com"                                                   # features/step_definitions/browser.rb:1
+      {"status"=>"success", "position"=>{"x"=>866, "y"=>323}}
+    When I fill in "dogs" in the "//form[@class='search-form']//input[@name='p']" field using xpath # features/step_definitions/browser.rb:5
+    And I click on "Search"                                                                         # features/step_definitions/browser.rb:9
+    Then I should see "Wikipedia" on the page                                                       # features/step_definitions/browser.rb:13
+    And I should see "foo" on the page                                                              # features/step_definitions/browser.rb:13
+      expected to find text "foo" in "Yahoo! Web Search HomeMailNewsSportsFinanceWeatherGamesGroupsAnswersScreenFlickrMore Sign In Mail Yahoo! Search query Web Images Video Shopping Blogs More Anytime Past day Past week Past month Ad related to dogs Dog Breeds | Dogs.Answers.com Dogs.Answers.com Learn About All Dog Breeds From Our Verified Dog Expert See more ads for: dogs, dog treats, pet supplies, dog training, dog grooming Search Shortcut Dogs - Image Results More Dogs images Search results Dog - Wikipedia, the free encyclopedia en.wikipedia.org/wiki/Dog Cached Etymology and...|Taxonomy|History and...|Roles with humans The domestic dog (Canis lupus familiaris is a subspecies of the gray wolf (Canis lupus), a member of the Canidae family of the mammalian order Carnivora. Domestic Dog - National Geographic www.nationalgeographic.com Type: Mammal (Canis familiaris) Dogs were probably the first tame animals. They have accompanied humans for some 10,000 years. Some scientists assert that all dogs, domestic and wild, share a common ancestor in the small South Asian wolf. Today humans have ... More about dogs » NextDayPets - Puppies For Sale, Dogs For Sale From Trusted ... www.nextdaypets.com Cached Directory of breeders and shelters with dogs and puppies for sale and pets for adoption. Search dogs and puppies by breed with information on 300+ dog breeds at Next ... Dogs, Dog Breeds, Dog Breeders & Dogs for Sale www.dogchannel.com Cached Dogchannel.com, a comprehensive dog resource center all about puppies and dogs, including sections devoted to dog care, puppy adoption and dog breeds, dog books and ... Dogs on About.com - All About Dogs and Puppies dogs.about.com Cached All about dogs - Your resource for dog information, dog health, dog obedience training, dog breeds and dog adoption. Get dog info, find out if you are ready to get a ... Dogs - Dog Information - Dog Breeds, Pictures, Videos www.petplace.com/dogs.aspx Cached • All about dogs, dog breeds, dog pictures, dog videos, dog care, dog health, dog information and more. American Kennel Club - akc.org www.akc.org Cached Headquarters of the national organization. Includes breeds, life with dogs, events, clubs, shop AKC, registration, news, and inside AKC. Petfinder - Dog: Dog Breeds, Adoption, Bringing a Dog Home ... www.petfinder.com/dogs Cached Everything you need to know about dogs, including dog breeds, how to adopt a dog, bringing a dog home, dog health and care, and more! Dog Breeds - Dog Breed Information - Puppies For Sale, Dogs ... www.nextdaypets.com/directory/breeds Cached Over 300 different dog breeds to browse. Find dog breed information and dog breed pictures for your favorite dog breeds. Dogs - Answers.com dogs.answers.com Cached The Future of Dog Safety: Dog Microchips. Technology brings changes. From entertainment to medical treatments, all facets of our lives have been improved from the ... GreatDogSite.com - Dogs - Dog Information - Dog Breeds ... www.greatdogsite.com Cached Providing Dog Information, Pictures, Q & A and Reviews for 700+ Dogs. Directory of Breeders and Shelters with Dogs and Puppies for Sale. Ads related to dogs Dog Breeds | Dogs.Answers.com Dogs.Answers.com Learn About All Dog Breeds From Our Verified Dog Expert Pup-Peroni® Dog Treats Pupperoni.com/Treats Treat Your Dog To Mouthwatering Treats In 7 Different Varieties! Oven-Baked Dog Treats Beneful.com/BakedDelights Your Dog Will Love Trying Each Delightful Variety Of Baked Treat! Nature's Recipe® Treats NaturesRecipe.com/DogTreats Crafted For All Dogs Big Or Small Reward Him For A Job Well Done! Also Try dogs for sale dog breeds pictures of dogs breeds of dogs small dogs cats and dogs boxer dogs types of dogs Get the latest updates on dogs More search results 12345Next168,000,000 results Ads Pup-Peroni® Dog Treats Pupperoni.com/Treats Treat Your Dog To Mouthwatering Treats In 7 Different Varieties! Oven-Baked Dog Treats Beneful.com/BakedDelights Your Dog Will Love Trying Each Delightful Variety Of Baked Treat! Nature's Recipe® Treats NaturesRecipe.com/DogTreats Crafted For All Dogs Big Or Small Reward Him For A Job Well Done! Dog Chow® Dog Finder DogChow.com/Breeds Dog Chow® Can Recommend The Best Dog For Your Family Or Apartment! See more ads for: dogs dog treats pet supplies dog training dog grooming dog supplies Search query Yahoo!HelpSuggestionsPrivacyLegalAdvertiseSubmit Your SitePowered by Bing™" (RSpec::Expectations::ExpectationNotMetError)
+      features/yahoo.feature:9:in `And I should see "foo" on the page'
 
 Failing Scenarios:
 cucumber features/yahoo.feature:4 # Scenario: searching yahoo
 
-4 scenarios (1 failed, 3 passed)
-13 steps (1 failed, 2 skipped, 10 passed)
-0m0.280s
+5 scenarios (1 failed, 4 passed)
+19 steps (1 failed, 18 passed)
+0m21.176s

@@ -26,12 +26,26 @@ Feature: Foo.rb test. Seeing if a file would load.
 #encoding: utf-8
 Feature: yahoo.com test
 
-  Scenario: searching yahoo                                                             # features/yahoo.feature:4
-    Given I am on the page "http://www.yahoo.com"                                       # features/step_definitions/yahoo_feature.rb:1
-      
-    When I fill in "input-query input-long med-large compact-input-enabled" with "dogs" # features/step_definitions/yahoo_feature.rb:6
-    Then I should see "Wikipedia"                                                       # features/step_definitions/yahoo_feature.rb:11
+  Scenario: searching yahoo                       # features/yahoo.feature:4
+    Given I am on the page "http://www.yahoo.com" # features/step_definitions/yahoo_feature.rb:1
+      rack-test requires a rack application, but none was given (ArgumentError)
+      features/yahoo.feature:5:in `Given I am on the page "http://www.yahoo.com"'
+    When I fill in "field" with "dogs"            # features/step_definitions/yahoo_feature.rb:6
+    Then I should see "Wikipedia"                 # features/step_definitions/yahoo_feature.rb:11
+      rack-test requires a rack application, but none was given (ArgumentError)
+      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara/rack_test/driver.rb:16:in `initialize'
+      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara.rb:339:in `new'
+      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara.rb:339:in `block in <top (required)>'
+      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara/session.rb:68:in `call'
+      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara/session.rb:68:in `driver'
+      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara/session.rb:77:in `reset!'
+      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara.rb:245:in `block in reset_sessions!'
+      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara.rb:245:in `each'
+      /home/user/.rvm/gems/ruby-head/gems/capybara-2.1.0/lib/capybara.rb:245:in `After'
 
-4 scenarios (4 passed)
-13 steps (13 passed)
-1m41.880s
+Failing Scenarios:
+cucumber features/yahoo.feature:4 # Scenario: searching yahoo
+
+4 scenarios (1 failed, 3 passed)
+13 steps (1 failed, 2 skipped, 10 passed)
+0m0.280s

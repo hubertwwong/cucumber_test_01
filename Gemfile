@@ -5,3 +5,4 @@ gem 'capybara'
 # drivers to run capybara
 gem "poltergeist"
 gem "selenium-webdriver"
+gem "capybara-webkit"

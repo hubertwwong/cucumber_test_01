@@ -1,26 +1,27 @@
 # allows cucumber to have rspec expectations.
-require "rspec"
+require 'rspec'
 require 'rspec/expectations'
 
 # to visit web pages.
-require "capybara"
+require 'capybara'
 require 'capybara/cucumber'
 require 'capybara/poltergeist'
 
-Capybara.default_driver = :selenium
+# seems like if you use anything but selenium, you need rack.
+#Capybara.default_driver = :selenium
+#Capybara.javascript_driver = :webkit
 
 # register the poltergist driver 
-#Capybara.default_driver = :poltergeist
-#Capybara.register_driver :poltergeist do |app|
-#    options = {
-#        :js_errors => true,
-#        :timeout => 120,
-#        :debug => false,
-#        :phantomjs_options => ['--load-images=no', '--disk-cache=false'],
-#        :inspector => true,
-#    }
-#    Capybara::Poltergeist::Driver.new(app, options)
-#end
-
+# DEFAULT: headless tests with poltergeist/PhantomJS
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(
+    app,
+    window_size: [1280, 1024],
+    timeout: 120
+    #debug:       true
+  )
+end
+Capybara.default_driver    = :poltergeist
+Capybara.javascript_driver = :poltergeist
 #
 #Capybara.app = MyRackApp
